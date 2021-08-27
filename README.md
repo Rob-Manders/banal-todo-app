@@ -19,13 +19,14 @@ This todo app is a React web application built to showcase my front-end skills u
 
 ## Built Using
 
-- [Webpack](https://webpack.js.org/)
 - [React](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
 - [Styled Components](https://styled-components.com/)
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Font-Awesome Icons](https://fontawesome.com/)
 - [Google Fonts](https://fonts.google.com/)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Adobe XD](https://www.adobe.com/uk/products/xd.html)
 
