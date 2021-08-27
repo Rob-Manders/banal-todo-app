@@ -4,9 +4,9 @@
 > *adjective*  
 > **so lacking in originality as to be obvious and boring.**
 
-I suppose it was about time I found myself making one of these...
+I suppose it was only a matter of time before I found myself making one of these...
 
-This todo app is a React web application built to showcase my front-end skills using most of what I have learned about front-end development so far.
+This todo app is a React web application built to showcase my front-end skills using what I have learned about front-end development so far.
 
 ## Key Features
 
