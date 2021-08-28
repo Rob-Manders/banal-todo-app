@@ -26,7 +26,8 @@ const ToggleSwitch = styled.div`
 		width: 2.25rem;
 		transition: color 150ms;
 
-		svg {
+		.icon--moon,
+		.icon--sun {
 			height: 1.25rem;
 			width: 1.25rem;
 		}

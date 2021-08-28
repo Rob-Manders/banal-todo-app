@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_List, Icon_Options } from '@Components/Icons'
+import Logo from '@Components/Logo'
 import ThemeToggle from '@Components/ThemeToggle'
 
 const NavBar = styled.nav`
@@ -14,9 +15,16 @@ const NavBar = styled.nav`
 		padding: 0.5rem;
 		max-width: 1400px;
 
-		svg {
-			height: 1.875rem;
-			width: 1.875rem;
+		.icon--list,
+		.icon--options {
+			cursor: pointer;
+			height: 1.625rem;
+			width: 1.625rem;
+
+			&:hover,
+			&:focus {
+				color: ${props => props.theme.focus};
+			}
 		}
 	
 		@media (min-width: 1000px) {
@@ -26,23 +34,6 @@ const NavBar = styled.nav`
 			padding: 1rem;
 			margin: 0 auto;
 		}
-	}
-
-`
-
-const Logo = styled.h1`
-	font-family: 'Rock Salt', sans-serif;
-	font-weight: 400;
-	text-align: center;
-	color: ${props => props.theme.secondary};
-	margin: 0;
-
-	span {
-		font-family: 'Poppins', sans-serif;
-		font-weight: 400;
-		font-size: 1.25rem;
-		color: ${props => props.theme.primary};
-		margin-left: 0.25rem;
 	}
 `
 
@@ -61,7 +52,7 @@ const Options = styled.div`
 		width: 1.875rem;
 	}
 
-	.fa-list-ul {
+	.icon--list {
 		margin-right: auto;
 		margin-left: 0.5rem;
 
@@ -77,7 +68,7 @@ export default function Nav() {
 	return (
 		<NavBar theme={theme}>
 			<div className="container">
-				<Logo theme={theme}>Banal<span>Todo</span></Logo>
+				<Logo />
 				<Options theme={theme}>
 					<Icon_List />
 					<Icon_Options />
