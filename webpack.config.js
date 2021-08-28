@@ -17,10 +17,6 @@ module.exports = {
 					'css-loader',
 					'sass-loader'
 				]
-			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/i,
-				type: 'asset/resource'
 			}
 		]
 	},
@@ -28,10 +24,12 @@ module.exports = {
 		extensions: ['*', '.js', '.jsx'],
 		alias: {
 			'@Components': path.resolve(__dirname, 'src/components/'),
+			'@Context': path.resolve(__dirname, 'src/context/'),
 			'@Fonts': path.resolve(__dirname, 'src/fonts/'),
 			'@Pages': path.resolve(__dirname, 'src/pages/'),
 			'@Source': path.resolve(__dirname, 'src/'),
-			'@Styles': path.resolve(__dirname, 'src/scss/')
+			'@Styles': path.resolve(__dirname, 'src/scss/'),
+			'@Themes': path.resolve(__dirname, 'src/themes/')
 		}
 	},
 	output: {

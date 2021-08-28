@@ -1,14 +1,2 @@
 
-@font-face {
-	font-family: 'Poppins';
-	src: url('@Fonts/Poppins-Regular.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Rock-Salt';
-	src: url('@Fonts/RockSalt-Regular.ttf') format('ttf');
-	font-weight: 400;
-	font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rock+Salt&display=swap');

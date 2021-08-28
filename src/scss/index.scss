@@ -1,6 +1,5 @@
 
-// Normalize.css 8.0.1
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@use './vendor';
 
 *,
 *::before,
@@ -9,7 +8,7 @@
 }
 
 body {
-	background-color: #bbb;
-	font-family: 'Poppins', sans-serif;
-	font-weight: 400;
+	background-color: #00130f;
+	// font-family: 'Poppins', sans-serif;
+	// font-weight: 400;
 }

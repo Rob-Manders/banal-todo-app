@@ -3,10 +3,12 @@
 		"baseUrl": ".",
 		"paths": {
 			"@Components/*": ["./src/components/*"],
+			"@Context/*": ["./src/context/*"],
 			"@Fonts/*": ["./src/fonts/*"],
 			"@Pages/*": ["./src/pages/*"],
 			"@Source/*": ["./src/*"],
-			"@Styles/*": ["./src/scss/*"]
+			"@Styles/*": ["./src/scss/*"],
+			"@Themes/*": ["./src/themes/*"]
 		}
 	},
 	"exclude": ["node_modules", "dist"]
