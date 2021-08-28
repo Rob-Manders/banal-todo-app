@@ -70,8 +70,8 @@ export default function Nav() {
 			<div className="container">
 				<Logo />
 				<Options theme={theme}>
-					<Icon_List />
-					<Icon_Options />
+					<Icon_List aria-label="view lists" />
+					<Icon_Options aria-label="options" />
 					<ThemeToggle />
 				</Options>
 			</div>

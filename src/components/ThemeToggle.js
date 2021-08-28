@@ -53,7 +53,7 @@ export default function ThemeToggle() {
 	const { theme, toggleTheme } = useContext(ThemeContext)
 
 	return (
-		<ToggleSwitch theme={theme} onClick={() => toggleTheme()}>
+		<ToggleSwitch theme={theme} onClick={() => toggleTheme()} aria-label="change colour theme">
 			<Dark theme={theme}>
 				<Icon_Moon />
 			</Dark>

@@ -41,7 +41,7 @@ export default function List({listId, listName}) {
 	return (
 		<ListItem theme={theme}>
 			<p className="list-name">{listName}</p>
-			<DeleteButton theme={theme}>
+			<DeleteButton theme={theme} aria-label="delete list">
 				<Icon_Bin />
 			</DeleteButton>
 		</ListItem>
