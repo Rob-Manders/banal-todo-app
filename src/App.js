@@ -1,21 +1,27 @@
 
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route
 } from 'react-router-dom'
 
-import Theme from '@Context/Theme'
+import { ThemeContext } from '@Context/Theme'
 
 import Nav from '@Components/Nav'
 
 export default function App() {
+	const { theme } = useContext(ThemeContext)
+
+	useEffect(() => {
+		document.body.style.backgroundColor = theme.background
+	}, [theme])
+
 	return(
-		<Theme>
+		<>
 			<Nav>
 				<h1>Banal Todo App</h1>
 			</Nav>
-		</Theme>
+		</>
 	)
 }

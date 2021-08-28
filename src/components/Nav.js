@@ -9,12 +9,25 @@ const NavBar = styled.nav`
 	background-color: ${props => props.theme.foreground};
 	min-height: 80px;
 	width: 100%;
-	padding: 0.5rem;
+	
+	.container {
+		padding: 0.5rem;
+		max-width: 1400px;
 
-	svg {
-		height: 1.875rem;
-		width: 1.875rem;
+		svg {
+			height: 1.875rem;
+			width: 1.875rem;
+		}
+	
+		@media (min-width: 1000px) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1rem;
+			margin: 0 auto;
+		}
 	}
+
 `
 
 const Logo = styled.h1`
@@ -39,6 +52,10 @@ const Options = styled.div`
 	color: ${props => props.theme.primary};
 	margin-top: 0.5rem;
 
+	@media (min-width: 1000px) {
+		margin-top: 0;
+	}
+
 	svg {
 		height: 1.875rem;
 		width: 1.875rem;
@@ -47,6 +64,10 @@ const Options = styled.div`
 	.fa-list-ul {
 		margin-right: auto;
 		margin-left: 0.5rem;
+
+		@media (min-width: 1000px) {
+			display: none;
+		}
 	}
 `
 
@@ -55,12 +76,14 @@ export default function Nav() {
 
 	return (
 		<NavBar theme={theme}>
-			<Logo theme={theme}>Banal<span>Todo</span></Logo>
-			<Options theme={theme}>
-				<Icon_List />
-				<Icon_Options />
-				<ThemeToggle />
-			</Options>
+			<div className="container">
+				<Logo theme={theme}>Banal<span>Todo</span></Logo>
+				<Options theme={theme}>
+					<Icon_List />
+					<Icon_Options />
+					<ThemeToggle />
+				</Options>
+			</div>
 		</NavBar>
 	)
 }
