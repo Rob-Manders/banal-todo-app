@@ -11,6 +11,8 @@ import { ThemeContext } from '@Context/Theme'
 import Nav from '@Components/Nav'
 import List from '@Components/List'
 import Lists from '@Components/Lists'
+import Task from '@Components/Task'
+import Tasks from '@Components/Tasks'
 
 export default function App() {
 	const { theme } = useContext(ThemeContext)
@@ -24,10 +26,15 @@ export default function App() {
 			<Nav>
 				<h1>Banal Todo App</h1>
 			</Nav>
-			<Lists>
+			{/* <Lists>
 				<List listId={0} listName="List 1"/>
 				<List listId={1} listName="List 2"/>
-			</Lists>
+			</Lists> */}
+
+			<Tasks>
+				<Task taskId={0} taskName="Do a thing" />
+				<Task taskId={1} taskName="Another thing to do" />
+			</Tasks>
 		</>
 	)
 }

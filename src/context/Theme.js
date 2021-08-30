@@ -9,7 +9,6 @@ export default function Theme({children}) {
 	const [ theme, setTheme ] = useState(darkTheme)
 
 	function toggleTheme() {
-		console.log('Toggle theme.')
 		setTheme(prevTheme => {
 			return prevTheme === lightTheme ? darkTheme : lightTheme
 		})

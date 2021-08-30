@@ -72,3 +72,30 @@ export function Icon_Cancel() {
 
 	)
 }
+
+export function Icon_UpArrow() {
+	return (
+		<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" className="icon--arrow icon--up-arrow" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+			<path fill="currentColor" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z">
+			</path>
+		</svg>
+	)
+}
+
+export function Icon_DownArrow() {
+	return (
+		<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" className="icon--arrow icon--down-arrow" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+			<path fill="currentColor" d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z">
+			</path>
+		</svg>
+	)
+}
+
+export function Icon_Circle() {
+	return (
+		<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" className="icon--circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+			<path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z">
+			</path>
+		</svg>
+	)
+}

@@ -3,18 +3,21 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_Add } from '@Components/Icons'
+import Subtask from '@Components/Subtask'
 
-const TasksContainer = styled.div`
+const SubtaskListContainer = styled.div`
 	width: 100%;
-	padding: 0 0.5rem;
+	padding: 0;
+	padding-bottom: 0.5rem;
 `
 
-const AddTask = styled.div`
+const AddSubtask = styled.div`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
 	color: ${props => props.theme.primary};
 	margin: 1rem;
+	margin-top: 0.75rem;
 	width: max-content;
 
 	.icon--add {
@@ -29,15 +32,16 @@ const AddTask = styled.div`
 	}
 `
 
-export default function Lists({children}) {
+export default function SubtaskList({children}) {
 	const { theme } = useContext(ThemeContext)
+
 	return (
-		<TasksContainer>
-			{children}
-			<AddTask theme={theme}>
+		<SubtaskListContainer theme={theme}>
+			{ children }
+			<AddSubtask theme={theme}>
 				<Icon_Add />
-				Create new task
-			</AddTask>
-		</TasksContainer>
+				Create new subtask
+			</AddSubtask>
+		</SubtaskListContainer>
 	)
 }

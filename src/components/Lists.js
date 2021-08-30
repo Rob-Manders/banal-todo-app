@@ -14,7 +14,7 @@ const AddList = styled.div`
 	display: flex;
 	align-items: center;
 	color: ${props => props.theme.primary};
-	margin: 0.5rem;
+	margin: 1rem;
 	width: max-content;
 
 	.icon--add {

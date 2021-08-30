@@ -3,8 +3,10 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_Bin } from '@Components/Icons'
+import DeleteButton from '@Components/DeleteButton'
 
-const ListItem = styled.div`
+const ListContainer = styled.div`
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	background-color: ${props => props.theme.foreground};
@@ -18,20 +20,12 @@ const ListItem = styled.div`
 		margin: 0;
 		margin-right: auto;
 	}
-`
-
-const DeleteButton = styled.div`
-	cursor: pointer;
-	color: ${props => props.theme.primary};
-	height: 1.625rem;
-
-	.icon--bin {
-		height: 1.625rem;
-	}
 
 	&:hover,
 	&:focus {
-		color: ${props => props.theme.focus};
+		.list-name {
+			color: ${props => props.theme.focus}
+		}
 	}
 `
 
@@ -39,11 +33,9 @@ export default function List({listId, listName}) {
 	const { theme } = useContext(ThemeContext)
 
 	return (
-		<ListItem theme={theme}>
+		<ListContainer theme={theme}>
 			<p className="list-name">{listName}</p>
-			<DeleteButton theme={theme} aria-label="delete list">
-				<Icon_Bin />
-			</DeleteButton>
-		</ListItem>
+			<DeleteButton />
+		</ListContainer>
 	)
 }
