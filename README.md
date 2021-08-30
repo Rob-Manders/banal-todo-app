@@ -15,12 +15,11 @@ This todo app is a React web application built to showcase my front-end skills u
 - Local storage for persistance.
 - Light & dark modes.
 - Fully responsive.
-- Fancy landing page.
 
 ## Built Using
 
 - [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
+- [React Router](https://reactrouter.com/) (Maybe...)
 - [Styled Components](https://styled-components.com/)
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Font-Awesome Icons](https://fontawesome.com/)
