@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { ThemeContext } from '@Context/Theme'
+import TodoLists from '@Context/TodoLists'
 
 import Nav from '@Components/Nav'
 import List from '@Components/List'
@@ -22,7 +23,7 @@ export default function App() {
 	}, [theme])
 
 	return(
-		<>
+		<TodoLists>
 			<Nav>
 				<h1>Banal Todo App</h1>
 			</Nav>
@@ -35,6 +36,6 @@ export default function App() {
 				<Task taskId={0} taskName="Do a thing" />
 				<Task taskId={1} taskName="Another thing to do" />
 			</Tasks>
-		</>
+		</TodoLists>
 	)
 }

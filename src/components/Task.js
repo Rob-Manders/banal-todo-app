@@ -5,15 +5,15 @@ import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_UpArrow, Icon_DownArrow } from '@Components/Icons'
 import CheckButton from '@Components/CheckButton'
+import ConfirmMenu from '@Components/ConfirmMenu'
 import DeleteButton from '@Components/DeleteButton'
 import Subtask from '@Components/Subtask'
 import SubtaskList from '@Components/SubtaskList'
 
 const TaskContainer = styled.div`
-	cursor: pointer;
 	display: flex;
 	align-items: center;
-	background-color: ${props => props.theme.foreground};
+	background-color: ${props => props.deleting ? props.theme.deleteBackground : props.theme.foreground};
 	color: ${props => props.theme.primary};
 	width: 100%;
 	margin-top: 0.5rem;
@@ -29,6 +29,7 @@ const TaskContainer = styled.div`
 `
 
 const Arrow = styled.div`
+	cursor: pointer;
 	position: relative;
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
@@ -50,11 +51,17 @@ const Arrow = styled.div`
 		bottom: 25%;
 		right: 0;
 	}
+
+	&:hover,
+	&:focus {
+		color: ${props => props.theme.focus}
+	}
 `
 
 export default function List({taskId, taskName}) {
 	const { theme } = useContext(ThemeContext)
 	const [ viewSubtasks, setViewSubtasks ] = useState(false)
+	const [ deleting, setDeleting ] = useState(false)
 
 	function ToggleSubtaskList() {
 		setViewSubtasks(prevViewSubtasks => !prevViewSubtasks)
@@ -69,13 +76,19 @@ export default function List({taskId, taskName}) {
 
 	return (
 		<>
-			<TaskContainer theme={theme} onClick={() => ToggleSubtaskList()}>
-				<CheckButton />
+			<TaskContainer theme={theme} deleting={deleting}>
+				<CheckButton onClick={() => console.log('Task complete.')}/>
 				<p className="list-name">{taskName}</p>
-				<Arrow theme={theme}>
+				<Arrow theme={theme} onClick={() => ToggleSubtaskList()}>
 					{ viewSubtasks ? <Icon_UpArrow /> : <Icon_DownArrow /> }
 				</Arrow>
-				<DeleteButton />
+				{
+					deleting
+					?
+					<ConfirmMenu confirmAction={() => setDeleting(false)} cancelAction={() => setDeleting(false)} />
+					:
+					<DeleteButton action={() => setDeleting(true)} />
+				}
 			</TaskContainer>
 
 			{ viewSubtasks && subTasks }

@@ -2,14 +2,13 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
-import { Icon_Bin } from '@Components/Icons'
 import DeleteButton from '@Components/DeleteButton'
 
 const ListContainer = styled.div`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	background-color: ${props => props.theme.foreground};
+	background-color: ${props => props.deleting ? props.theme.deleteBackground : props.theme.foreground};
 	color: ${props => props.theme.primary};
 	width: 100%;
 	margin-top: 0.5rem;
@@ -31,11 +30,18 @@ const ListContainer = styled.div`
 
 export default function List({listId, listName}) {
 	const { theme } = useContext(ThemeContext)
+	const [ deleting, setDeleting ] = useState(false)
 
 	return (
-		<ListContainer theme={theme}>
+		<ListContainer theme={theme} deleting={deleting}>
 			<p className="list-name">{listName}</p>
-			<DeleteButton />
+			{
+				deleting
+				?
+				<ConfirmMenu confirmAction={() => setDeleting(false)} cancelAction={() => setDeleting(false)} />
+				:
+				<DeleteButton action={() => setDeleting(true)} />
+			}
 		</ListContainer>
 	)
 }

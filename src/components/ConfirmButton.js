@@ -2,31 +2,30 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
-import { Icon_Bin } from '@Components/Icons'
+import { Icon_Check } from '@Components/Icons'
 
-const DeleteButtonContainer = styled.div`
+const ConfirmButtonContainer = styled.div`
 	cursor: pointer;
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
-	opacity: 0.3;
+	margin-right: 0.5rem;
 
-	.icon--bin {
+	.icon--check{
 		height: 1.625rem;
 	}
 
 	&:hover,
 	&:focus {
 		color: ${props => props.theme.focus};
-		opacity: 1;
 	}
 `
 
-export default function DeleteButton({action}) {
+export default function ConfirmButton({action}) {
 	const { theme } = useContext(ThemeContext)
 
 	return (
-		<DeleteButtonContainer theme={theme} onClick={action}>
-			<Icon_Bin />
-		</DeleteButtonContainer>
+		<ConfirmButtonContainer theme={theme} onClick={action}>
+			<Icon_Check />
+		</ConfirmButtonContainer>
 	)
 }
