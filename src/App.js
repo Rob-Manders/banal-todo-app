@@ -11,6 +11,9 @@ import ShowLists from '@Context/ShowLists'
 import TodoLists from '@Context/TodoLists'
 
 import Nav from '@Components/Nav'
+
+import Home from '@Pages/Home'
+
 import List from '@Components/List'
 import Lists from '@Components/Lists'
 import Task from '@Components/Task'

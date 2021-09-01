@@ -1,7 +1,7 @@
 
 import React, { useState, createContext } from 'react'
 
-const ShowListsContext = createContext()
+export const ShowListsContext = createContext()
 
 export default function ShowLists({children}) {
 	const [ showLists, setShowLists ] = useState(true)

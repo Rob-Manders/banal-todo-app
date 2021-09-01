@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ShowListsContext } from '@Context/ShowLists'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_List, Icon_Options } from '@Components/Icons'
 import Logo from '@Components/Logo'
@@ -68,6 +69,7 @@ const Options = styled.div`
 `
 
 export default function Nav() {
+	const { toggleShowLists } = useContext(ShowListsContext)
 	const { theme } = useContext(ThemeContext)
 
 	return (
@@ -75,7 +77,7 @@ export default function Nav() {
 			<div className="container">
 				<Logo />
 				<Options theme={theme}>
-					<Icon_List aria-label="view lists" />
+					<Icon_List aria-label="view lists" onClick={() => toggleShowLists()}/>
 					<Icon_Options aria-label="options" />
 					<ThemeToggle />
 				</Options>
