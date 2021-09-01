@@ -1,5 +1,8 @@
 
+import { globals } from "./globals";
+
 export const darkTheme = {
+	globals: globals,
 	themeName: 'dark',
 	background: '#00130f',
 	foreground: '#00211a',

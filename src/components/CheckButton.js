@@ -9,6 +9,7 @@ const CheckButtonContainer = styled.div`
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
 	margin-right: 0.5rem;
+	transition: color 150ms;
 
 	.icon--check,
 	.icon--circle {
@@ -25,11 +26,11 @@ const CheckButtonContainer = styled.div`
 	}
 `
 
-export default function CheckButton({complete = false}) {
+export default function CheckButton({complete, action}) {
 	const { theme } = useContext(ThemeContext)
 
 	return (
-		<CheckButtonContainer theme={theme}>
+		<CheckButtonContainer theme={theme} onClick={action}>
 			{ complete ? <Icon_Check /> : <Icon_Circle /> }
 		</CheckButtonContainer>
 	)

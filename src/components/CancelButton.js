@@ -8,6 +8,7 @@ const CancelButtonContainer = styled.div`
 	cursor: pointer;
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
+	transition: color 150ms;
 
 	.icon--cancel{
 		height: 1.625rem;

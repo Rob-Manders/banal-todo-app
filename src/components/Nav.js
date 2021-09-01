@@ -13,7 +13,7 @@ const NavBar = styled.nav`
 	
 	.container {
 		padding: 0.5rem;
-		max-width: 1400px;
+		max-width: ${props => props.theme.globals.maxPageWidth}px;
 
 		.icon--list,
 		.icon--options {
@@ -27,7 +27,7 @@ const NavBar = styled.nav`
 			}
 		}
 	
-		@media (min-width: 1000px) {
+		@media (min-width: ${props => props.theme.globals.breakpoint}px) {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -55,10 +55,15 @@ const Options = styled.div`
 	.icon--list {
 		margin-right: auto;
 		margin-left: 0.5rem;
+		transition: color 150ms;
 
-		@media (min-width: 1000px) {
+		@media (min-width: ${props => props.theme.globals.breakpoint}px) {
 			display: none;
 		}
+	}
+
+	.icon--options {
+		transition: color 150ms;
 	}
 `
 

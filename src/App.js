@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { ThemeContext } from '@Context/Theme'
+import ShowLists from '@Context/ShowLists'
 import TodoLists from '@Context/TodoLists'
 
 import Nav from '@Components/Nav'
@@ -24,18 +25,18 @@ export default function App() {
 
 	return(
 		<TodoLists>
-			<Nav>
-				<h1>Banal Todo App</h1>
-			</Nav>
-			{/* <Lists>
-				<List listId={0} listName="List 1"/>
-				<List listId={1} listName="List 2"/>
-			</Lists> */}
+			<ShowLists>
+				<Nav />
+				{/* <Lists>
+					<List listId={0} listName="List 1"/>
+					<List listId={1} listName="List 2"/>
+				</Lists> */}
 
-			<Tasks>
-				<Task taskId={0} taskName="Do a thing" />
-				<Task taskId={1} taskName="Another thing to do" />
-			</Tasks>
+				<Tasks>
+					<Task taskId={0} taskName="Do a thing" />
+					<Task taskId={1} taskName="Another thing to do" />
+				</Tasks>
+			</ShowLists>
 		</TodoLists>
 	)
 }

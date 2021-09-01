@@ -9,6 +9,7 @@ const DeleteButtonContainer = styled.div`
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
 	opacity: 0.3;
+	transition: 150ms;
 
 	.icon--bin {
 		height: 1.625rem;

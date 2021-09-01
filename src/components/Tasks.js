@@ -16,6 +16,7 @@ const AddTask = styled.div`
 	color: ${props => props.theme.primary};
 	margin: 1rem;
 	width: max-content;
+	transition: color 150ms;
 
 	.icon--add {
 		height: 1.625rem;

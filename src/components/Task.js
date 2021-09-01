@@ -35,6 +35,7 @@ const Arrow = styled.div`
 	height: 1.625rem;
 	width: 1.625rem;
 	margin: 0 1rem;
+	transition: color 150ms;
 
 	.icon--arrow {
 		height: 1.625rem;
@@ -77,7 +78,7 @@ export default function List({taskId, taskName}) {
 	return (
 		<>
 			<TaskContainer theme={theme} deleting={deleting}>
-				<CheckButton onClick={() => console.log('Task complete.')}/>
+				<CheckButton complete={false} action={() => console.log('Task complete.')}/>
 				<p className="list-name">{taskName}</p>
 				<Arrow theme={theme} onClick={() => ToggleSubtaskList()}>
 					{ viewSubtasks ? <Icon_UpArrow /> : <Icon_DownArrow /> }

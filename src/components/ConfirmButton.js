@@ -9,6 +9,7 @@ const ConfirmButtonContainer = styled.div`
 	color: ${props => props.theme.primary};
 	height: 1.625rem;
 	margin-right: 0.5rem;
+	transition: color 150ms;
 
 	.icon--check{
 		height: 1.625rem;
