@@ -4,27 +4,29 @@ import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { ShowListsContext } from '@Context/ShowLists'
 import { TodoListContext } from '@Context/TodoLists'
+import { CurrentListContext } from '@Context/CurrentList'
 import Lists from '@Components/Lists'
 import PageDivider from '@Components/PageDivider'
 import Tasks from '@Components/Tasks'
 
 const HomeContainer = styled.div`
-	max-width: ${props => props.theme.globals.maxPageWidth};
+	max-width: ${props => props.theme.globals.maxPageWidth}px;
 	height: 100%;
+	margin: 0 auto;
+`
 
-	@media (min-width: ${props => props.theme.globals.breakpoint}) {
-		display: flex;
-		align-items: flex-start;
-	}
+const LargeDisplayContainer = styled.div`
+	display: flex;
+	height: 100%;
 `
 
 export default function Home() {
 	const { theme } = useContext(ThemeContext)
-	const { showLists, setShowLists } = useContext(ShowListsContext)
+	const { showLists } = useContext(ShowListsContext)
 	const { todoLists } = useContext(TodoListContext)
+	const { currentList } = useContext(CurrentListContext)
 	const [ selectedList, setSelectedList ] = useState(todoLists[0])
 	const [ smallDisplay, setSmallDisplay ] = useState()
-	// const displayWidth = document.documentElement.clientWidth
 
 	useEffect(() => {
 		// setShowLists(false)
@@ -55,11 +57,11 @@ export default function Home() {
 				?
 				currentDisplay
 				:
-				<>
+				<LargeDisplayContainer>
 					<Lists />
 					<PageDivider />
 					<Tasks />
-				</>
+				</LargeDisplayContainer>
 			}
 		</HomeContainer>
 	)
