@@ -34,11 +34,11 @@ const AddList = styled.div`
 
 export default function Lists() {
 	const { theme } = useContext(ThemeContext)
-	const { todoLists } = useContext(TodoListContext)
+	const { lists } = useContext(TodoListContext)
 	return (
 		<ListsContainer theme={theme}>
 			{
-				todoLists.map(list => <List key={list.listId} listId={list.listId} listName={list.listName} />)
+				lists.map(list => <List key={list.listId} listId={list.listId} listName={list.listName} />)
 			}
 			<AddList theme={theme}>
 				<Icon_Add />

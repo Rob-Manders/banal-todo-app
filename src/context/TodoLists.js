@@ -4,117 +4,87 @@ import React, { createContext, useState } from 'react'
 export const TodoListContext = createContext()
 
 export default function TodoLists({children}) {
-	const [ todoLists, setTodoLists ] = useState(
+	const [ lists, setLists ] = useState(
 		[
 			{
 				listId: "XcqYjkRWvW",
 				listName: 'Todo List 1',
-				tasks: [
-					{
-						taskId: "bSkDfWIFXi",
-						complete: false,
-						taskName: "Task 1",
-						subTasks: [
-							{
-								subtaskId: "SrWSzgGpK7",
-								complete: false,
-								taskName: "Subtask 1"
-							},
-							{
-								subtaskId: "IDeqTRurSS",
-								complete: false,
-								taskName: "Subtask 2"
-							},
-							{
-								subtaskId: "pEcvtM5Dok",
-								complete: false,
-								taskName: "Subtask 3"
-							}
-						]
-					},
-					{
-						taskId: "4PWle1ydZw",
-						complete: false,
-						taskName: "Task 2",
-						subTasks: [
-							{
-								subtaskId: "H5HCQFztPi",
-								complete: false,
-								taskName: "Subtask 1"
-							},
-							{
-								subtaskId: "IaOqEpmvay",
-								complete: false,
-								taskName: "Subtask 2"
-							},
-							{
-								subtaskId: "Gmxh8VMt2q",
-								complete: false,
-								taskName: "Subtask 3"
-							}
-						]
-					}
-				]
 			},
 			{
 				listId: "GtSwcfYGLU",
 				listName: 'Todo List 2',
-				tasks: [
-					{
-						taskId: "62Tiyd21ZY",
-						complete: false,
-						taskName: "Task 1",
-						subTasks: [
-							{
-								subtaskId: "1Yx3zC6rnl",
-								complete: false,
-								taskName: "Subtask 1"
-							},
-							{
-								subtaskId: "DEhzypdQmv",
-								complete: false,
-								taskName: "Subtask 2"
-							},
-							{
-								subtaskId: "eHuanIWfKj",
-								complete: false,
-								taskName: "Subtask 3"
-							}
-						]
-					},
-					{
-						taskId: "HDjm9oPTUx",
-						complete: false,
-						taskName: "Task 2",
-						subTasks: [
-							{
-								subtaskId: "Tv7Ky2pyMS",
-								complete: false,
-								taskName: "Subtask 1"
-							},
-							{
-								subtaskId: "7IoUEe5G1F",
-								complete: false,
-								taskName: "Subtask 2"
-							},
-							{
-								subtaskId: "xOtmi0Et2V",
-								complete: false,
-								taskName: "Subtask 3"
-							}
-						]
-					}
-				]
 			}
 		]
 	)
 
-	function updateTodoLists(newTodoLists) {
-		setTodoLists(newTodoLists)
-	}
+	const [ tasks, setTasks ] = useState([
+		{
+			taskId: "bSkDfWIFXi",
+			parent: "XcqYjkRWvW",
+			complete: false,
+			taskName: "Task 1"
+		},
+		{
+			taskId: "4PWle1ydZw",
+			parent: "XcqYjkRWvW",
+			complete: false,
+			taskName: "Task 2"
+		},
+		{
+			taskId: "62Tiyd21ZY",
+			parent: "GtSwcfYGLU",
+			complete: false,
+			taskName: "Task 1"
+		},
+		{
+			taskId: "HDjm9oPTUx",
+			parent: "GtSwcfYGLU",
+			complete: false,
+			taskName: "Task 2"
+		}
+	])
+
+	const [ subtasks, setSubtasks ] = useState([
+		{
+			subtaskId: "SrWSzgGpK7",
+			parent: "bSkDfWIFXi",
+			complete: false,
+			taskName: "Subtask 1"
+		},
+		{
+			subtaskId: "IDeqTRurSS",
+			parent: "bSkDfWIFXi",
+			complete: false,
+			taskName: "Subtask 2"
+		},
+		{
+			subtaskId: "pEcvtM5Dok",
+			parent: "bSkDfWIFXi",
+			complete: false,
+			taskName: "Subtask 3"
+		},
+		{
+			subtaskId: "H5HCQFztPi",
+			parent: "4PWle1ydZw",
+			complete: false,
+			taskName: "Subtask 1"
+		},
+		{
+			subtaskId: "IaOqEpmvay",
+			parent: "4PWle1ydZw",
+			complete: false,
+			taskName: "Subtask 2"
+		},
+		{
+			subtaskId: "Gmxh8VMt2q",
+			parent: "4PWle1ydZw",
+			complete: false,
+			taskName: "Subtask 3"
+		}
+	])
 
 	return (
-		<TodoListContext.Provider value={{todoLists, updateTodoLists}}>
+		<TodoListContext.Provider value={{lists, tasks, subtasks, setLists, setTasks, setSubtasks}}>
 			{ children }
 		</TodoListContext.Provider>
 	)

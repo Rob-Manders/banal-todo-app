@@ -23,9 +23,9 @@ const LargeDisplayContainer = styled.div`
 export default function Home() {
 	const { theme } = useContext(ThemeContext)
 	const { showLists } = useContext(ShowListsContext)
-	const { todoLists } = useContext(TodoListContext)
+	const { lists } = useContext(TodoListContext)
 	const { currentList } = useContext(CurrentListContext)
-	const [ selectedList, setSelectedList ] = useState(todoLists[0])
+	const [ selectedList, setSelectedList ] = useState(lists[0])
 	const [ smallDisplay, setSmallDisplay ] = useState()
 
 	useEffect(() => {

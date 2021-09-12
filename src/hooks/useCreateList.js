@@ -4,7 +4,7 @@ import useCreateID from "@Hooks/useCreateID"
 import { TodoListContext } from "@Context/TodoLists"
 
 export default function useCreateList(listName) {
-	const { todoLists, updateTodoLists } = useContext(TodoListContext)
+	const { setLists } = useContext(TodoListContext)
 
 	const newList = {
 		listId: useCreateID(),
@@ -12,5 +12,5 @@ export default function useCreateList(listName) {
 		tasks: []
 	}
 
-	updateTodoLists([...todoLists, newList])
+	setLists(prevLists => [...prevLists, newList])
 }

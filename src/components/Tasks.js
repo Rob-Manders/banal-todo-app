@@ -34,11 +34,11 @@ const AddTask = styled.div`
 
 export default function Lists({ selectedList }) {
 	const { theme } = useContext(ThemeContext)
-	const { todoLists } = useContext(TodoListContext)
+	const { tasks } = useContext(TodoListContext)
 	return (
 		<TasksContainer>
 			{
-				todoLists[0].tasks.map(task => <Task key={task.taskId} taskId={task.taskId} taskName={task.taskName} />)
+				// todoLists[0].tasks.map(task => <Task key={task.taskId} taskId={task.taskId} taskName={task.taskName} />)
 			}
 			<AddTask theme={theme}>
 				<Icon_Add />
