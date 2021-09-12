@@ -1,8 +1,9 @@
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { TodoListContext } from '@Context/TodoLists'
+import { CurrentListContext } from '@Context/CurrentList'
 import { Icon_Add } from '@Components/Icons'
 import Task from '@Components/Task'
 
@@ -32,13 +33,15 @@ const AddTask = styled.div`
 	}
 `
 
-export default function Lists({ selectedList }) {
+export default function Lists() {
 	const { theme } = useContext(ThemeContext)
 	const { tasks } = useContext(TodoListContext)
+	const { currentList } = useContext(CurrentListContext)
+
 	return (
 		<TasksContainer>
 			{
-				// todoLists[0].tasks.map(task => <Task key={task.taskId} taskId={task.taskId} taskName={task.taskName} />)
+				tasks.map(task => task.parent === currentList && <Task key={task.taskId} taskId={task.taskId} taskName={task.taskName} />)
 			}
 			<AddTask theme={theme}>
 				<Icon_Add />

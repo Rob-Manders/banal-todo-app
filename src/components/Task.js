@@ -59,7 +59,7 @@ const Arrow = styled.div`
 	}
 `
 
-export default function List({taskId, taskName}) {
+export default function Task({taskId, taskName}) {
 	const { theme } = useContext(ThemeContext)
 	const [ viewSubtasks, setViewSubtasks ] = useState(false)
 	const [ deleting, setDeleting ] = useState(false)
@@ -92,7 +92,7 @@ export default function List({taskId, taskName}) {
 				}
 			</TaskContainer>
 
-			{ viewSubtasks && subTasks }
+			{ viewSubtasks && <SubtaskList parentTask={taskId} /> }
 		</>
 	)
 }

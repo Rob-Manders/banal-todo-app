@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { Icon_Add } from '@Components/Icons'
+import { TodoListContext } from '@Context/TodoLists'
 import Subtask from '@Components/Subtask'
 
 const SubtaskListContainer = styled.div`
@@ -32,12 +33,15 @@ const AddSubtask = styled.div`
 	}
 `
 
-export default function SubtaskList({children}) {
+export default function SubtaskList({parentTask}) {
 	const { theme } = useContext(ThemeContext)
+	const { subtasks } = useContext(TodoListContext)
 
 	return (
 		<SubtaskListContainer theme={theme}>
-			{ children }
+			{ 
+				subtasks.map(subtask => subtask.parent === parentTask && <Subtask key={subtask.subtaskId} subtaskId={subtask.subtaskId} subtaskName={subtask.subtaskName} />)
+			}
 			<AddSubtask theme={theme}>
 				<Icon_Add />
 				Create new subtask
