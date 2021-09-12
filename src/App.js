@@ -9,6 +9,7 @@ import {
 import { ThemeContext } from '@Context/Theme'
 import ShowLists from '@Context/ShowLists'
 import TodoLists from '@Context/TodoLists'
+import useCreateID from '@Hooks/useCreateID'
 
 import Nav from '@Components/Nav'
 
@@ -24,21 +25,23 @@ export default function App() {
 
 	useEffect(() => {
 		document.body.style.backgroundColor = theme.background
+		// console.log(useCreateID())
 	}, [theme])
 
 	return(
 		<TodoLists>
 			<ShowLists>
 				<Nav />
+				<Home />
 				{/* <Lists>
 					<List listId={0} listName="List 1"/>
 					<List listId={1} listName="List 2"/>
 				</Lists> */}
 
-				<Tasks>
+				{/* <Tasks>
 					<Task taskId={0} taskName="Do a thing" />
 					<Task taskId={1} taskName="Another thing to do" />
-				</Tasks>
+				</Tasks> */}
 			</ShowLists>
 		</TodoLists>
 	)

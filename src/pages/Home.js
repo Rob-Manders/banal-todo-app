@@ -1,8 +1,9 @@
 
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
 import { ShowListsContext } from '@Context/ShowLists'
+import { TodoListContext } from '@Context/TodoLists'
 import Lists from '@Components/Lists'
 import PageDivider from '@Components/PageDivider'
 import Tasks from '@Components/Tasks'
@@ -20,15 +21,33 @@ const HomeContainer = styled.div`
 export default function Home() {
 	const { theme } = useContext(ThemeContext)
 	const { showLists, setShowLists } = useContext(ShowListsContext)
-	const displayWidth = document.documentElement.clientWidth
+	const { todoLists } = useContext(TodoListContext)
+	const [ selectedList, setSelectedList ] = useState(todoLists[0])
+	const [ smallDisplay, setSmallDisplay ] = useState()
+	// const displayWidth = document.documentElement.clientWidth
 
 	useEffect(() => {
-		setShowLists(false)
+		// setShowLists(false)
+
+		function checkDisplay() {
+			if (displayWidth < theme.globals.breakpoint)	setSmallDisplay(true)
+			else setSmallDisplay(false)
+		}
+		
+		let displayWidth = document.documentElement.clientWidth
+
+		window.addEventListener('resize', () => {
+			displayWidth = document.documentElement.clientWidth
+			checkDisplay()
+		})
+
+		checkDisplay()
+
+		return () => window.removeEventListener('resize')
 	}, [])
 
-	const currentDisplay = showLists ? <Lists /> : <Tasks />
-	const smallDisplay = displayWidth < theme.globals.breakpoint ? true : false
-
+	const currentDisplay = showLists ? <Lists /> : <Tasks selectedListId={selectedList.listId} />
+	
 	return (
 		<HomeContainer theme={theme}>
 			{

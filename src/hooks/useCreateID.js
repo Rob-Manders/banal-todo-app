@@ -1,5 +1,5 @@
 
-export default function useCreateID(length = 5) {
+export default function useCreateID(length = 10) {
 	let id = ""
 	const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 

@@ -2,7 +2,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { ThemeContext } from '@Context/Theme'
+import { TodoListContext } from '@Context/TodoLists'
 import { Icon_Add } from '@Components/Icons'
+import Task from '@Components/Task'
 
 const TasksContainer = styled.div`
 	width: 100%;
@@ -30,11 +32,14 @@ const AddTask = styled.div`
 	}
 `
 
-export default function Lists({children}) {
+export default function Lists({ selectedList }) {
 	const { theme } = useContext(ThemeContext)
+	const { todoLists } = useContext(TodoListContext)
 	return (
 		<TasksContainer>
-			{children}
+			{
+				todoLists[0].tasks.map(task => <Task key={task.taskId} taskId={task.taskId} taskName={task.taskName} />)
+			}
 			<AddTask theme={theme}>
 				<Icon_Add />
 				Create new task
